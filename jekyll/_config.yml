@@ -1,20 +1,23 @@
 # Site wide configuration
-
-title:			"My Site"
-description: 	"This is a description of my awesome site."
-logo: 			# 120x120 px default image used for Twitter summary card
-teaser: 		# 400x250 px default teaser image used in image archive grid
-locale: 		en
-url:			hpmtg.github.io
-baseurl:		/hpmtg-website
-feed:
+title:  "The Human Performance Modeling Technical Group (HPMTG)"
+description:  "This is the website for the HFES HPMTG."
+logo:  # 120x120 px default image used for Twitter summary card
+teaser:  # 400x250 px default teaser image used in image archive grid
+locale:  en
+url:  hpmtg.github.io
+baseurl:  /hpmtg.github.io
+feed: 
   path: atom.xml
 
 # Jekyll configuration
+load_paths:
+  - _sass
+  - node_modules
 
 sass:
   sass_dir: _sass
   style: compressed
+
 permalink: /:categories/:title/
 kramdown:
   toc_levels: 1..2
@@ -23,23 +26,31 @@ plugins:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
+  # - jekyll-menus
 
+header_pages:
+  - about.md 
 
 # Site owner
 owner:
-  name:
-  email:
+  name: Adam M. Houser, Ph.D.
+  email: adamhous@buffalo.edu
   twitter:
   google:
-	ad-client:
-	ad-slot:
+  ad-client:
+  ad-slot:
   bio:
   avatar: bio-photo.jpg # 160x160 px image for author byline
   disqus-shortname:
-
+  links:
+    - label: "Webmaster Email"
+      icon: "fas fa-fw fa-envelope-square"
+      # url: "mailto:adamhous@buffalo.edu"  
 
 include:
   - .htaccess
+  - _pages
+
 exclude:
   - "*.less"
   - "*.sublime-project"
@@ -51,6 +62,7 @@ exclude:
   - CHANGELOG
   - Capfile
   - Gemfile
+  - Gemfile.lock
   - Gruntfile.js
   - LICENSE
   - README
@@ -63,3 +75,10 @@ exclude:
   - package.json
   - spec
   - tmp
+
+# Serving
+detach              : false
+port                : 4000
+host                : 127.0.0.1
+baseurl             : "" # does not include hostname
+show_dir_listing    : false
